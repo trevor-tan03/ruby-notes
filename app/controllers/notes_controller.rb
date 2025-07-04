@@ -23,6 +23,14 @@ class NotesController < ApplicationController
     redirect_to root_path(selected: filename)
   end
 
+  def create_new_note
+    filename = Time.now.strftime("%Y%m%d%H%M%S") + ".md"
+    file_path = Rails.root.join("notes", filename)
+    File.write(file_path, "")
+    flash[:notice] = "New note created!"
+    redirect_to root_path(selected: filename)
+  end
+
   def file_content
     filename = params[:filename]
     file_path = Rails.root.join("notes", filename)

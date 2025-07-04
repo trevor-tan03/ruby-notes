@@ -1,9 +1,11 @@
 <div class="container">
     <nav id="nav">
         <h1>Notes:<h1>
-        <button>
-            New Note
-        </button>
+        <%= form_with url: create_note_path, method: :post, local: true do |f| %>
+            <button type="submit">
+                New Note
+            </button>
+        <% end %>
         <ul>
           <% @files.each do |file| %>
             <li>

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   get "notes/file_content", to: "notes#file_content"
 
+  post "notes/create", to: "notes#create_new_note", as: :create_note
   post "notes/update", to: "notes#update_file_content", as: :update_note
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
