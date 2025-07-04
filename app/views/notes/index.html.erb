@@ -14,8 +14,11 @@
     </nav>
     <% if @selected.present? %>
       <div id="editor">
-        <textarea id="note-textarea"><%= @selected_file_content %></textarea>
-        <button>Save</button>
+        <%= form_with url: update_note_path, method: :post, local: true do |f| %>
+          <%= hidden_field_tag :filename, @selected %>
+          <%= text_area_tag :content, @selected_file_content, id: "note-textarea" %>
+          <button type="submit">Save</button>
+        <% end %>
       </div>
       <div id="preview">
         <!-- You can add preview logic here if needed -->
