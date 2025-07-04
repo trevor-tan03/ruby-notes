@@ -8,3 +8,24 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+ .container {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr;
+ }
+
+ .container > * {
+    border: 1px solid black;
+    height: 100dvh;
+ }
+
+ #editor textarea {
+    width: 100%;
+    height: 90%;
+    resize: none;
+ }

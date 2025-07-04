@@ -1,6 +1,28 @@
-<ul>
-    <h1>Notes:<h1>
-    <% @files.each do |file| %>
-        <li><%= file %></li>
+<div class="container">
+    <nav id="nav">
+        <h1>Notes:<h1>
+        <button>
+            New Note
+        </button>
+        <ul>
+          <% @files.each do |file| %>
+            <li>
+              <%= link_to file, root_path(selected: file) %>
+            </li>
+          <% end %>
+        </ul>
+    </nav>
+    <% if @selected.present? %>
+      <div id="editor">
+        <textarea id="note-textarea"><%= @selected_file_content %></textarea>
+        <button>Save</button>
+      </div>
+      <div id="preview">
+        <!-- You can add preview logic here if needed -->
+      </div>
+    <% else %>
+      <div id="preview" style="grid-column: 2 / span 3; text-align: center; padding: 2em;">
+        Nothing to show here. Please create a new note or select an existing one.
+      </div>
     <% end %>
-</ul>
+</div>
